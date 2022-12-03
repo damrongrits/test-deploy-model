@@ -1,0 +1,36 @@
+<body>
+    <div class="container">
+      <form action="{{url_for('getPredict')}}" method="POST">
+        <h1 style="color:DodgerBlue;">Model Result</h1>
+        <p>Input variables in model</p>
+        <hr>
+        
+        <label for="value"><b>Age</b></label>
+        <input type="text" placeholder="Enter Age" name="x1" required>
+        <br>
+
+        <label for="value"><b>Gender</b></label>
+        <select name="x2" id="value">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <br>
+
+        <label for="value"><b>Payment Method</b></label>
+        <select name="x3" id="value">
+            <option value="credit card">credit card</option>
+            <option value="cheque">cheque</option>
+            <option value="cash">cash</option>
+        </select>
+        <hr>
+        
+       
+
+        <button type="submit" class="predictbtn">Get prediction</button>
+      </form>
+  
+      <br>
+      <br>
+      <h1 style="color:IndianRed;">{{prediction_text}}</h1>
+    </div>
+  </body>
