@@ -8,7 +8,7 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 model = pickle.load(open('dealsDecisionTree.pk', 'rb'))
-deals = pd.read_csv("/Users/anos/Documents/Works/Training/dataset/Deals.csv")
+deals = pd.read_csv("./Deals.csv")
 feature_cols = ['Age', 'Gender', 'Payment Method']
 X_train = deals[feature_cols] # Features
 X_train = pd.get_dummies(X_train)
