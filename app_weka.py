@@ -49,7 +49,13 @@ def getPredict():
     dataset.add_instance(inst)
 
     predicted = classifier.classify_instance(dataset[0])
-    return render_template('index_weka.html', prediction_text = f'Predicted (MF): {predicted}')
+
+    if (predicted==0.0):
+        output="Normal"
+    else:
+        output="Failure"
+    jvm.stop()
+    return render_template('index_weka.html', prediction_text = f'Predicted (MF): {output}')
 
 if __name__ == '__main__':
     app.run(debug = True)
