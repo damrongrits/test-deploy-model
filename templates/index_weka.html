@@ -1,0 +1,43 @@
+<body>
+    <div class="container">
+      <form action="{{url_for('getPredict')}}" method="POST">
+        <h1 style="color:DodgerBlue;">Model Result</h1>
+        <p>Input variables in model</p>
+        <hr>
+        
+        <label for="value"><b>Type</b></label>
+        <select name="x1" id="value">
+            <option value="M">0</option>
+            <option value="L">1</option>
+            <option value="L">2</option>
+        </select>
+        <br>
+
+        <label for="value"><b>Air temperature [K]</b></label>
+        <input type="text" placeholder="Enter Air temperature [K]" name="x2" required>
+        <br>
+
+        <label for="value"><b>Process temperature [K]</b></label>
+        <input type="text" placeholder="Enter Process temperature [K]" name="x3" required>
+        <br>
+
+        <label for="value"><b>Rotational speed [rpm]</b></label>
+        <input type="text" placeholder="Enter Rotational speed [rpm]" name="x4" required>
+        <br>
+
+        <label for="value"><b>Torque [Nm]</b></label>
+        <input type="text" placeholder="Enter Torque [Nm]" name="x5" required>
+        <br>
+
+        <label for="value"><b>Tool wear [min]</b></label>
+        <input type="text" placeholder="Enter Tool wear [min]" name="x6" required>
+        <br>
+
+        <button type="submit" class="predictbtn">Get prediction</button>
+      </form>
+  
+      <br>
+      <br>
+      <h1 style="color:IndianRed;">{{prediction_text}}</h1>
+    </div>
+  </body>
