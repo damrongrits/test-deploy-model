@@ -36,7 +36,7 @@ def getPredict():
         "Predicted (Future Customer)":predicted
     }
 
-    return render_template('index_weka.html', prediction_text = result)
+    return render_template('index.html', prediction_text = result)
     #return render_template('index.html', prediction_text = f'Predicted (Future Customer): {predicted}')
 
 if __name__ == '__main__':
