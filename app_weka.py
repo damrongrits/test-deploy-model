@@ -1,11 +1,10 @@
-
-import pandas as pd
+#heroku buildpacks:set heroku/python
+#heroku buildpacks:add --index 1 heroku/jvm
 
 import weka.core.serialization as serialization
 from weka.classifiers import Classifier
-from weka.core.converters import Loader, Saver
+from weka.core.converters import Loader
 from weka.core.dataset import Attribute, Instance, Instances
-import os;
 import weka.core.jvm as jvm
 
 from flask import Flask, request, render_template
@@ -26,7 +25,7 @@ def getPredict():
     x5 = request.form['x5']
     x6 = request.form['x6']
 
-    os.environ["JAVA_HOME"] = "/Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home"
+    #os.environ["JAVA_HOME"] = "/Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home"
     jvm.start()
     objects = serialization.read_all("PMj48.model")
     classifier = Classifier(jobject=objects[0])
@@ -43,7 +42,6 @@ def getPredict():
     dataset = Instances.create_instances("helloworld", [type_att, num1_att, num2_att, num3_att, num4_att, num5_att, MF_att], 0)
     dataset.class_is_last()
     # add rows
-    #values = [1,300.7,311.9,1335,57.1,194,1]
     values = [x1,x2,x3,x4,x5,x6,0]
     inst = Instance.create_instance(values)
     dataset.add_instance(inst)

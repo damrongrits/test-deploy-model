@@ -30,7 +30,7 @@ def prediction():
         x5 = X['Torque [Nm]']
         x6 = X['Tool wear [min]']
 
-        #os.environ["JAVA_HOME"] = "/Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home"
+        os.environ["JAVA_HOME"] = "/Library/Java/JavaVirtualMachines/jdk-11.0.10.jdk/Contents/Home"
         jvm.start()
         objects = serialization.read_all("PMj48.model")
         classifier = Classifier(jobject=objects[0])
