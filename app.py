@@ -28,7 +28,16 @@ def getPredict():
     X_call = X_call.reindex(columns = X_train.columns, fill_value=0)
 
     predicted = model.predict(X_call)[0]
-    return render_template('index.html', prediction_text = f'Predicted (Future Customer): {predicted}')
+
+    result = {
+        "Age":x1,
+        "Gender":x2,
+        "Payment Method":x3,
+        "Predicted (Future Customer)":predicted
+    }
+
+    return render_template('index_weka.html', prediction_text = result)
+    #return render_template('index.html', prediction_text = f'Predicted (Future Customer): {predicted}')
 
 if __name__ == '__main__':
     app.run(debug = True)
